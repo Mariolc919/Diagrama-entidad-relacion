@@ -1,0 +1,134 @@
+Diagrama Entidad Relacion
+(E-R)
+
+El enlace que rige la union de las entidades esta representada por la relacion del modelo.
+ 
+ -En un DER, cada entidad se representa mediante un rectangulo, cada relacion mediante
+ un rombo y cada dominio (conjunto donde toma valores el atributo) mediante un circulo.
+
+ -Mediante líneas se conectan las entidades con las relaciones, igual que las entidades con los dominios, representando a los atributos.
+
+-Los Atributos Llaves se representan subrayando el correspondiente conjunto de valores.En ocasiones, una entidad no puede ser identificada únicamente por el valor de sus propios atributos. En estos casos, se utilizan conjuntamente las relaciones con los atributos para lograr la requerida identificación unívoca. Estas entidades reciben el nombre de entidades débiles y se representan en el DER con un doble rectángulo.
+
+-En el diseño de bases de datos relacionales, se llama clave principal a un campo o a una combinación de campos que identifica de forma única a cada fila de una tabla. Una clave primaria comprende de esta manera una columna o conjunto de columnas. No puede haber dos filas en una tabla que tengan la misma clave primaria.
+
+-El MER restringe las relaciones a usar para identificar las entidades débiles a relaciones binarias del tipo 1: N. Así, por ejemplo, una ocurrencia de "trabajador" puede tener N ocurrencias "persona-dependiente" asociadas, donde además, la existencia de las ocurrencias en la segunda entidad depende de la existencia de una ocurrencia que le corresponda en la primera entidad.
+
+-Por ejemplo, en el modelo habrá personas dependientes de un trabajador sólo si ese trabajador existe. Para indicar esa dependencia en la existencia se usa una saeta en el DER.
+
+-La llave de una entidad débil se forma combinando la llave de la entidad regular que la determina con algún otro atributo que defina unívocamente cada entidad débil asociada a una entidad regular dada. (Una entidad se denomina regular si no es débil).En una relación, la llave es la combinación de las llaves de todas las entidades asociadas.
+
+-Para cada relación se determina su tipo (simple o complejo) y en el DER se escribe el tipo de correspondencia. Por ejemplo, una empresa puede tener varios (n) trabajadores asociados y un trabajador pertenece a una sola empresa (1).
+
+-En la relación Trabajador-Máquina-Pieza, un trabajador puede trabajar en n máquinas, produciendo p piezas, o una pieza puede ser producida por m trabajadores en n máquinas. Aquí, m, n y p no identifican un número específico, sino solamente el tipo de correspondencia que se establece en la relación.
+
+	El MODELO ENTIDAD - RELACION
+
+1. Se elabora el diagrama (o diagrams) entidad relacion.
+2. Se completa el modelo con listas de atributos y una descripcion de otras restricciones que no se pueden reflejar en el diagrama.
+Dado lo rudimentario de esta tecnica se necesita cierto entrenamiento y experiencia paralograr buenos modelos de datos.
+El modelado de datos no acaba con el uso de esta tecnica,
+
+Son necesarias otras tecnicas para lograr un modelo directamente implementable en una base de datos.
+Brevemente:
+Transformacion de relaciones múltiples en binarias
+Normalizacion de una base de datos de relaciones (algunas relaciones pueden tranformarse en atributos y veceversa).
+Conversion en tablas (en caso de utilizar una base de datos relacional).
+
+
+	BASE TEORICA Y CONCEPTUAL
+
+Entidad
+
+Una entidad es un objeto que existe y se distingue de otros objetos de acuerdo a sus características llamadas Atributos. Las Entidades pueden ser concretas como una persona o abstractas como una fecha. Representa una “cosa” u "objeto" del mundo real con existencia independiente, es decir, se diferencia unívocamente de cualquier otro objeto o cosa, incluso siendo del mismo tipo, o una misma entidad.
+Algunos Ejemplos:
+
+Una persona. (Se diferencia de cualquier otra persona, incluso siendo gemelos).
+Un automóvil. (Aunque sean de la misma marca, el mismo modelo,..., tendrán atributos diferentes, por ejemplo, el número de bastidor).
+Una casa (Aunque sea exactamente igual a otra, aún se diferenciará en su dirección).
+Una entidad puede ser un objeto con existencia física como: una persona, un animal, una casa, etc. (entidad concreta), o un objeto con existencia conceptual como: un puesto de trabajo, una asignatura de clases, un nombre,etc. (entidad abstracta).
+Una entidad está descrita y se representa por sus características o atributos. Por ejemplo, la entidad Persona puede llevar consigo las características: Nombre, Apellido, Género, Estatura, Peso, Fecha de nacimiento, etc...
+
+Atributos
+
+Los atributos son las propiedades que describen a cada entidad en un conjunto de entidades.
+Un conjunto de entidades dentro de una entidad, tiene valores específicos asignados para cada uno de sus atributos, de esta forma, es posible su identificación unívoca.
+Ejemplos:
+A la colección de entidades Alumnos, con el siguiente conjunto de atributos en común, (id, nombre, edad, semestre), pertenecen las entidades:
+(1, Sofia, 18 años, 2)
+(2, Josefa, 19 años, 5)
+(3, Gabriela, 20 años, 2)
+Cada una de las entidades pertenecientes a este conjunto se diferencia de las demás por el valor de sus atributos. Nótese que dos o más entidades diferentes pueden tener los mismos valores para algunos de sus atributos, pero nunca para todos.
+En particular, los atributos identificativos son aquellos que permiten diferenciar a una instancia de la entidad de otra distinta. Por ejemplo, el atributo identificativo que distingue a un alumno de otro es su número de id.
+Para cada atributo, existe un dominio del mismo, este hace referencia al tipo de datos que será almacenado o a restricciones en los valores que el atributo puede tomar (Cadenas de caracteres, números, solo dos letras, solo números mayores que cero, solo números enteros...).
+Cuando una entidad no tiene un valor para un atributo dado, este toma el valor nulo, bien sea que no se conoce, que no existe o que no se sabe nada al respecto del mismo.
+
+Relación
+
+Relación: Una relación es una asociación o relación matemática entre varias Entidades. Las relaciones también se nombran. Se representan en el Diagrama_Entidad_Relación, representado también por E-R mediante flechas y rombos. Cada entidad interviene en una relación con una determinada cardinalidad.
+
+La cardinalidad (número de instancias o elementos de una entidad que pueden asociarse a un elemento de la otra entidad relacionada) se representa mediante una pareja de datos, en minúsculas, de la forma (cardinalidad mínima, cardinalidad máxima), asociada a cada uno de las entidades que intervienen en la relación. Son posibles las siguientes cardinalidades: (0,1), (1,1), (0,n), (1,n), (m,n). También se informa de las cardinalidades máximas con las que intervienen las entidades en la relación. Los Diagramas E-R son lenguajes gráfico para describir conceptos. Informalmente, son simples Dibujos o Gráficos que describen la información que trata un sistema de información y el Software que lo automatiza. El tipo de relación se define tomando los máximos de las cardinalidades que intervienen en la relación.
+
+Conjunto de relaciones
+
+Consiste en una colección, o conjunto, de relaciones de la misma naturaleza.
+		
+
+	CORRESPONDECIA DE CARDINALIDADES
+	
+Dado un conjunto de relaciones en el que participan dos o más conjuntos de entidades, la correspondencia de cardinalidad indica el número de entidades con las que puede estar relacionada una entidad dada.
+Una a una (1:1). En una relación uno a uno, cada registro de la Tabla A sólo puede tener un registro coincidente en la Tabla B y viceversa.
+
+Este tipo de relación no es habitual, debido a que la mayoría de la información relacionada de esta forma estaría en una sola tabla. Puede utilizar la relación uno a uno para dividir una tabla con muchos campos, para aislar parte de una tabla por razones de seguridad o para almacenar información que sólo se aplica a un subconjunto de la tabla principal.
+
+Por ejemplo, puede crear una tabla que registre los empleados participantes en un partido de fútbol benéfico. Cada jugador de Fútbol de la tabla Jugadores de fútbol tiene un registro coincidente en la tabla Empleados.
+
+Ejemplo: Nación y Capital
+
+Una a varios(1:N).. La relación uno a varios es el tipo de relación más común. En este tipo de relación, un registro de la Tabla A puede tener muchos registros coincidentes en la Tabla B, pero un registro de la Tabla B sólo tiene un registro coincidente en la Tabla A. Ejemplo: cliente y pedidos. Varios a Uno: Una entidad en A se relaciona exclusivamente con una entidad en B. Pero una entidad en B se puede relacionar con 0 o muchas entidades en A. Muchos a muchos(N:N). En una relación mucho a mucho, un registro de la Tabla A puede tener muchos registros coincidentes en la Tabla B, y viceversa. Este tipo de relación sólo es posible si se define una tercera tabla (denominada tabla de unión) cuya clave principal (Clave principal: uno o más campos (columnas) cuyos valores identifican de manera exclusiva cada registro de una tabla. Una clave principal no puede permitir valores Nulo y debe tener siempre un índice exclusivo.
+
+
+	RESTRICCIONES DE PARTICIPACION
+
+Dado un conjunto de relaciones R en el cual participa un conjunto de entidades A, dicha participacion puede ser de dos tipos.
+
+	*Total: Cuando cada entidad en A participa en al menos una relacion de R
+	*Parcial: Cuando al menos una entidad en A NO pertenece en alguna relacion de R.
+
+
+	CLAVES
+
+Es un subconjunto de atributos comunes en una coleccion de entidades, que permite identificar univocamente cada una de las entidades pertenecientes a dicha coleccion. Asimismo, permiten distinguir entre sí las relaciones de un conjunto de relaciones. 
+
+Dentro de los conjuntos de entidades existen los siguientes tipos de claves.
+
+SUPERCLAVE: Es un subconjunto de atributos que permite distinguir univocamente cada una de las entidades de un conjunto de entidades.
+
+CANDIDATA: Dada una superclave, si esta deja de serlo quitando unicamente uno de los atributos que la componen, entonces esta es una clave candidata.
+
+PRIMARIA: Es una clave candidata, elegida por el diseñador de la base de datos, para identificar unívocamente las entidades de un conjunto de entidades.
+
+
+-En una relacion 1 a muchos (1:N), lo que sucedera es que la clave primaria de la entidad que tiene la relacion uno, la debo de pasar como foranea a la entidad que tiene la relacion muchos y agregarle un numero para hacer diferencia.
+
+-Siempre una clave foranea es primaria de otra entidad
+
+- Cuando tenemos una relacion muchos a muchos se escribe asi (N:M) y se va a crear una tabla intermedia, la tabla intermedia va a tener dos claves foraneas que seran de las claves primarias de las dos entidades, en la clave intermedia se pueden agregar mas atributos.
+
+-Una tabla intermedia soporta una relacion muchos a muchos, pero siempre debe de tener las claves foraneas de las entidades principales.
+
+
+
+--------Representación del Objeto de Estudio en el Mundo de los Datos--------
+
+• Entidades.
+
+• Atributos de las Entidades.
+
+• Atributo llave.
+
+• Relaciones entre las Entidades.
+
+• Modelo gráfico de las Entidades y sus Relaciones. (Diagrama Entidad Relación)
+
+• Modelo Lógico de los Datos.
